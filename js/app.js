@@ -33,6 +33,19 @@ const megaroster = {
 
   },
 
+  promoteStudent(ev) {
+    const btn = ev.target
+    const li = btn.parentElement.parentElement
+    li.style.padding = "3px 3px 3px 5px"
+    //listing.style.width = listing.textContent.length * 8 + "px"
+    li.style.borderStyle = "solid"
+    li.style.borderColor = "#000"
+    li.style.borderWidth = "4px"
+    li.style.backgroundColor = "#9eddff"
+    li.style.margin = "5px 0px 5px 0px"
+    li.style.fontWeight = "bold"
+  },
+
   addStudent(ev) {
     ev.preventDefault()
     const f = ev.target
@@ -63,6 +76,10 @@ const megaroster = {
     li
       .querySelector('button.remove')
       .addEventListener('click', this.removeStudent.bind(this))
+
+    li
+      .querySelector('button.promote')
+      .addEventListener('click', this.promoteStudent.bind(this))
     return li
   },
 
