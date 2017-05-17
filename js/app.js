@@ -19,8 +19,18 @@ const megaroster = {
     const btn = ev.target
     btn.closest('.student').remove()
 
+
     // Remove it from the this.students array
     // this.students.splice(?, 1)
+    const id = parseInt(btn.parentElement.parentElement.dataset.id)
+    for(let i = 0; i < megaroster.students.length; i++){
+      if(megaroster.students[i].id === id){
+        megaroster.students.splice(i, 1)
+        break
+      }
+    }
+
+
   },
 
   addStudent(ev) {
