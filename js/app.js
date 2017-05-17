@@ -50,7 +50,6 @@ const megaroster = {
     const btn = ev.target 
     const id = parseInt(btn.parentElement.parentElement.dataset.id)
     if(id === megaroster.students[0].id){
-      alert()
       return;
     }
     const li = btn.closest('.student')
@@ -85,7 +84,6 @@ const megaroster = {
     const btn = ev.target
     const id = parseInt(btn.parentElement.parentElement.dataset.id)
     if(id === megaroster.students[megaroster.students.length - 1].id){
-      alert()
       return;
     }
     const li = btn.closest('.student')
