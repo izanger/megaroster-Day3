@@ -46,6 +46,45 @@ const megaroster = {
     li.style.fontWeight = "bold"
   },
 
+  moveUp(ev) {
+    const btn = ev.target 
+    const id = parseInt(btn.parentElement.parentElement.dataset.id)
+    if(id === megaroster.students[0].id){
+      return;
+    }
+    const li = btn.closest('.student')
+    let stud
+    for(let i = 0; i < megaroster.students.length; i++){
+      if(id === megaroster.students[i].id){
+        stud = megaroster.students[i]
+        break
+      }
+    }
+
+    const newLi = megaroster.buildListItem(stud)
+    li.parentElement.insertBefore(newLi, li.previousElementSibling)
+    li.remove()
+  },
+
+  moveDown(ev) {
+    const btn = ev.target
+    const id = parseInt(btn.parentElement.parentElement.dataset.id)
+    if(id === megaroster.students[megaroster.students.length - 1].id){
+      return;
+    }
+    const li = btn.closest('.student')
+    let stud
+    for(let i = 0; i < megaroster.students.length; i++){
+      if(id === megaroster.students[i].id){
+        stud = megaroster.students[i]
+        break
+      }
+    }
+    const newLi = megaroster.buildListItem(stud)
+    li.parentElement.insertBefore(newLi, li.nextElementSibling.nextElementSibling)
+    li.remove()
+  },
+
   addStudent(ev) {
     ev.preventDefault()
     const f = ev.target
@@ -76,6 +115,14 @@ const megaroster = {
     li
       .querySelector('button.remove')
       .addEventListener('click', this.removeStudent.bind(this))
+
+    li
+      .querySelector('button.moveup')
+      .addEventListener('click', this.moveUp.bind(this))
+
+    li
+      .querySelector('button.movedown')
+      .addEventListener('click', this.moveDown.bind(this))
 
     li
       .querySelector('button.promote')
