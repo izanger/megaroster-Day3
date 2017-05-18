@@ -28,3 +28,15 @@
 .span.student-name {
   white-space: nowrap;
 }
+
+.student:first-child button.moveup {
+  background-color: #ddd;
+  color: #eee;
+  cursor: not-allowed;
+}
+
+.student:last-child button.movedown {
+  background-color: #ddd;
+  color: #eee;
+  cursor: not-allowed;
+}

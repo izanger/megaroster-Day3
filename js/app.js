@@ -67,6 +67,44 @@ const megaroster = {
     }
     stud.promoted = 1
 
+
+
+    // const btn = ev.target
+    // const li = btn.parentElement.parentElement
+    // const id = parseInt(li.dataset.id) 
+    // let stud
+    // for(let i = 0; i < megaroster.students.length; i++){
+    //   if(id === megaroster.students[i].id){
+    //     stud = megaroster.students[i]
+    //     break
+    //   }
+    // }
+    // if(!stud.promoted){
+    //   li.style.padding = "3px 3px 3px 5px"
+    //   //listing.style.width = listing.textContent.length * 8 + "px"
+    //   li.style.borderStyle = "solid"
+    //   li.style.borderColor = "#000"
+    //   li.style.borderWidth = "4px"
+    //   li.style.backgroundColor = "#9eddff"
+    //   li.style.margin = "5px 0px 5px 0px"
+    //   li.style.fontWeight = "bold"
+
+    // }else{
+    //   li.style.padding = "0px 0px 0px 0px"
+    //   //listing.style.width = listing.textContent.length * 8 + "px"
+    //   li.style.borderStyle = "none"
+    //   li.style.borderColor = "#000"
+    //   li.style.borderWidth = "0px"
+    //   li.style.backgroundColor = "white"
+    //   li.style.margin = "0px 0px 0px 0px"
+    //   li.style.fontWeight = "normal"
+
+    // }
+
+    // stud.promoted = !stud.promoted
+
+
+
   },
 
   moveUp(ev) {
