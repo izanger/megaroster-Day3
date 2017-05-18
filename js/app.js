@@ -15,6 +15,20 @@ const megaroster = {
       .addEventListener('submit', this.addStudent.bind(this))
   },
 
+  //run this on reload
+  load(){
+    const rosterString = localStorage.getItem('roster')
+    const rosterArray = JSON.parse(rosterString)
+    //rosterArray.reverse().map(this.addStudent.bind(this))
+    
+    const max = JSON.parse(localStorage.getItem('max'))
+    this.max = max
+
+    alert()
+
+    
+  },
+
   removeStudent(ev) {
     const btn = ev.target
     btn.closest('.student').remove()
@@ -31,7 +45,7 @@ const megaroster = {
     }
 
     localStorage.setItem('roster', JSON.stringify(this.students))
-    
+    localStorage.setItem('max', JSON.stringify(this.max))
   },
 
   promoteStudent(ev) {
@@ -106,6 +120,7 @@ const megaroster = {
     }
 
     localStorage.setItem('roster', JSON.stringify(this.students))
+    localStorage.setItem('max', JSON.stringify(this.max))
 
   },
 
@@ -156,6 +171,7 @@ const megaroster = {
     }
 
     localStorage.setItem('roster', JSON.stringify(this.students))
+    localStorage.setItem('max', JSON.stringify(this.max))
   },
 
   addStudent(ev) {
@@ -172,7 +188,8 @@ const megaroster = {
     const listItem = this.buildListItem(student)
     this.prependChild(this.studentList, listItem)
 
-    this.max ++
+    this.max++
+    localStorage.setItem('max', JSON.stringify(this.max))
     f.reset()
   },
 
