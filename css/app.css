@@ -24,3 +24,7 @@
   padding-top: 1px;
   padding-bottom: 1px;
 }
+
+.span.student-name {
+  white-space: nowrap;
+}
