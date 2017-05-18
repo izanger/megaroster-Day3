@@ -24,9 +24,6 @@ const megaroster = {
     const max = JSON.parse(localStorage.getItem('max'))
     this.max = max
 
-    alert()
-
-    
   },
 
   removeStudent(ev) {
