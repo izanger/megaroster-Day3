@@ -95,7 +95,6 @@ const megaroster = {
       }
     }
     
-    debugger;
     if(xx.promoted === 1){
       newLi.style.padding = "3px 3px 3px 5px"
       newLi.style.borderStyle = "solid"
