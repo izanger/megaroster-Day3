@@ -30,7 +30,8 @@ const megaroster = {
       }
     }
 
-
+    localStorage.setItem('roster', JSON.stringify(this.students))
+    
   },
 
   promoteStudent(ev) {
@@ -78,6 +79,8 @@ const megaroster = {
       }
     }
 
+    localStorage.setItem('roster', JSON.stringify(this.students))
+
   },
 
   moveDown(ev) {
@@ -110,6 +113,8 @@ const megaroster = {
         break
       }
     }    
+
+    localStorage.setItem('roster', JSON.stringify(this.students))
   },
 
   addStudent(ev) {
@@ -120,6 +125,7 @@ const megaroster = {
       name: f.studentName.value,
     }
     this.students.unshift(student)
+    localStorage.setItem('roster', JSON.stringify(this.students))
 
     const listItem = this.buildListItem(student)
     this.prependChild(this.studentList, listItem)
