@@ -45,6 +45,17 @@ const megaroster = {
     li.style.backgroundColor = "#9eddff"
     li.style.margin = "5px 0px 5px 0px"
     li.style.fontWeight = "bold"
+
+    const id = parseInt(li.dataset.id) 
+    let stud
+    for(let i = 0; i < megaroster.students.length; i++){
+      if(id === megaroster.students[i].id){
+        stud = megaroster.students[i]
+        break
+      }
+    }
+    stud.promoted = 1
+
   },
 
   moveUp(ev) {
@@ -55,9 +66,11 @@ const megaroster = {
     }
     const li = btn.closest('.student')
     let stud
+    let xx
     for(let i = 0; i < megaroster.students.length; i++){
       if(id === megaroster.students[i].id){
         stud = megaroster.students[i]
+        xx = megaroster.students[i-1]
         break
       }
     }
@@ -71,12 +84,26 @@ const megaroster = {
       if(id === megaroster.students[i].id){
         const tempId = megaroster.students[i].id
         const tempName = megaroster.students[i].name
+        const tempProm = megaroster.students[i].promoted
         megaroster.students[i].id = megaroster.students[i-1].id
         megaroster.students[i].name = megaroster.students[i-1].name
+        megaroster.students[i].promoted = megaroster.students[i-1].promoted
         megaroster.students[i-1].id = tempId
         megaroster.students[i-1].name = tempName
+        megaroster.students[i-1].promoted = tempProm
         break
       }
+    }
+    
+    debugger;
+    if(xx.promoted === 1){
+      newLi.style.padding = "3px 3px 3px 5px"
+      newLi.style.borderStyle = "solid"
+      newLi.style.borderColor = "#000"
+      newLi.style.borderWidth = "4px"
+      newLi.style.backgroundColor = "#9eddff"
+      newLi.style.margin = "5px 0px 5px 0px"
+      newLi.style.fontWeight = "bold"
     }
 
     localStorage.setItem('roster', JSON.stringify(this.students))
@@ -91,9 +118,11 @@ const megaroster = {
     }
     const li = btn.closest('.student')
     let stud
+    let xx
     for(let i = 0; i < megaroster.students.length; i++){
       if(id === megaroster.students[i].id){
         stud = megaroster.students[i]
+        xx = megaroster.students[i+1]
         break
       }
     }
@@ -106,13 +135,26 @@ const megaroster = {
       if(id === megaroster.students[j].id){
         const tempId = megaroster.students[j].id
         const tempName = megaroster.students[j].name
+        const tempProm = megaroster.students[j].promoted
         megaroster.students[j].id = megaroster.students[j+1].id
         megaroster.students[j].name = megaroster.students[j+1].name
+        megaroster.students[j].promoted = megaroster.students[j+1].promoted
         megaroster.students[j+1].id = tempId
         megaroster.students[j+1].name = tempName
+        megaroster.students[j+1].promoted = tempProm
         break
       }
     }    
+
+    if(xx.promoted === 1){
+      newLi.style.padding = "3px 3px 3px 5px"
+      newLi.style.borderStyle = "solid"
+      newLi.style.borderColor = "#000"
+      newLi.style.borderWidth = "4px"
+      newLi.style.backgroundColor = "#9eddff"
+      newLi.style.margin = "5px 0px 5px 0px"
+      newLi.style.fontWeight = "bold"
+    }
 
     localStorage.setItem('roster', JSON.stringify(this.students))
   },
@@ -123,6 +165,7 @@ const megaroster = {
     const student = {
       id: this.max + 1,
       name: f.studentName.value,
+      promoted: 0,
     }
     this.students.unshift(student)
     localStorage.setItem('roster', JSON.stringify(this.students))
